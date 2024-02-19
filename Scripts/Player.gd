@@ -5,10 +5,14 @@ var jump_speed = 14
 var target_velocity = Vector3.ZERO
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.0015
+var bullet = load("res://Scenes/bullet.tscn")
+var instance
+
 
 @onready var gun_anim = $Camera3D/Node3D/Gun/AnimationPlayer
+@onready var gun_barrel = $Camera3D/Node3D/Gun/RayCast3D
 
-func _physics_process(delta):
+func _process(delta):
 	velocity.y += -gravity * delta
 	var input = Input.get_vector("left", "right", "forward", "backward")
 	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
@@ -23,6 +27,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		if !gun_anim.is_playing():
 			gun_anim.play("Shoot")
+			instance = bullet.instantiate()
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
 
 
 func _ready():
