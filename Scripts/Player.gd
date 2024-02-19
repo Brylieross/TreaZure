@@ -6,6 +6,8 @@ var target_velocity = Vector3.ZERO
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.0015
 
+@onready var gun_anim = $Camera3D/Node3D/Gun/AnimationPlayer
+
 func _physics_process(delta):
 	velocity.y += -gravity * delta
 	var input = Input.get_vector("left", "right", "forward", "backward")
@@ -16,9 +18,16 @@ func _physics_process(delta):
 	move_and_slide()
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_speed
+	
+	
+	if Input.is_action_just_pressed("shoot"):
+		if !gun_anim.is_playing():
+			gun_anim.play("Shoot")
+
 
 func _ready():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:

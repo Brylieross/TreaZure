@@ -22,6 +22,20 @@ metallic = 0.5
 
 [sub_resource type="Animation" id="Animation_emd4c"]
 resource_name = "Shoot"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.1), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t87gb"]
 _data = {
@@ -50,3 +64,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ya1n6")
 libraries = {
 "": SubResource("AnimationLibrary_t87gb")
 }
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="6"]
+transform = Transform3D(2.19892e-07, 1, 0, -5.03053, 4.37114e-08, 0, 2.84217e-14, 0, -5.82249, -3.21469, -2.53399, -0.287812)
