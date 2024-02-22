@@ -1,22 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6gn45xhxksdj"]
+[gd_scene load_steps=5 format=3 uid="uid://c6gn45xhxksdj"]
 
 [ext_resource type="PackedScene" uid="uid://dsmwxmk1vjqt5" path="res://Assets/gun.glb" id="1_66cn0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m84us"]
-albedo_color = Color(0.403922, 0.403922, 0.403922, 1)
-metallic = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0cvr"]
-albedo_color = Color(0.615686, 0.615686, 0.615686, 1)
-metallic = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tii47"]
-albedo_color = Color(0.568627, 0.568627, 0.568627, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1kac"]
-albedo_color = Color(0.568627, 0.568627, 0.568627, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya1n6"]
 albedo_color = Color(0.403922, 0.403922, 0.403922, 1)
 metallic = 0.5
 
@@ -43,27 +29,15 @@ _data = {
 }
 
 [node name="gun" instance=ExtResource("1_66cn0")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0)
 
 [node name="Cube" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_m84us")
 
-[node name="Cube_001" parent="." index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_x0cvr")
-
-[node name="Cube_003" parent="." index="2"]
-surface_material_override/0 = SubResource("StandardMaterial3D_tii47")
-
-[node name="Cube_004" parent="." index="3"]
-surface_material_override/0 = SubResource("StandardMaterial3D_t1kac")
-
-[node name="Cube_002" parent="." index="4"]
-surface_material_override/0 = SubResource("StandardMaterial3D_ya1n6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_t87gb")
 }
 
-[node name="RayCast3D" type="RayCast3D" parent="." index="6"]
-transform = Transform3D(2.19892e-07, 1, 0, -5.03053, 4.37114e-08, 0, 2.84217e-14, 0, -5.82249, -3.21469, -2.53399, -0.287812)
+[node name="RayCast3D" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(-9.61176e-15, 4.37114e-08, -5.82249, 5.03053, 4.37114e-08, 0, -2.19891e-07, 1, 2.54509e-07, 7.87082, -4.04597, 3.5371e-07)

@@ -9,8 +9,8 @@ var bullet = load("res://Scenes/bullet.tscn")
 var instance
 
 
-@onready var gun_anim = $Camera3D/Node3D/Gun/AnimationPlayer
-@onready var gun_barrel = $Camera3D/Node3D/Gun/RayCast3D
+@onready var gun_anim = $Camera3D/Gun/GunMesh/AnimationPlayer
+@onready var gun_barrel = $Camera3D/Gun/GunMesh/RayCast3D
 
 func _process(delta):
 	velocity.y += -gravity * delta
