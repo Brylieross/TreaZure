@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjuo28occsx1f"]
+[gd_scene load_steps=11 format=3 uid="uid://cjuo28occsx1f"]
 
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_snps0"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wph2i"]
 [ext_resource type="PackedScene" uid="uid://c6gn45xhxksdj" path="res://Scenes/gun.tscn" id="2_7jgwl"]
+[ext_resource type="PackedScene" uid="uid://ibskmdtefi2i" path="res://Scenes/zombie.tscn" id="4_345q1"]
 
 [sub_resource type="Environment" id="Environment_1fttd"]
 
@@ -19,6 +21,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ej2q"]
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_snps0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.82106, 0.570843, 0, -0.570843, 0.82106, 0, 7.49149, 0)
@@ -62,3 +65,12 @@ mesh = SubResource("BoxMesh_p5bk6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CSGCombiner3D/Floor"]
 transform = Transform3D(20.5902, 0, 0, 0, 1, 0, 0, 0, 20.5902, 0, 0, 0)
 shape = SubResource("BoxShape3D_3ej2q")
+
+[node name="Zombie" parent="." instance=ExtResource("4_345q1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81936, 0.5, -7.79579)
+
+[node name="Zombie2" parent="." instance=ExtResource("4_345q1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81936, 0.5, -5.82951)
+
+[node name="Zombie3" parent="." instance=ExtResource("4_345q1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81936, 0.5, -3.60697)
