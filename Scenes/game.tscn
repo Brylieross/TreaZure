@@ -29,6 +29,24 @@ transform = Transform3D(1, 0, 0, 0, 0.82106, 0.570843, 0, -0.570843, 0.82106, 0,
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1fttd")
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="Spawn1" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64915, 0, 0)
+
+[node name="Spawn2" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55445, 0, 0)
+
+[node name="Spawn3" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0768156, 0, 8.99541)
+
+[node name="Spawn4" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0768156, 0, -9.74848)
+
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75572, 0)
 script = ExtResource("1_wph2i")
@@ -67,10 +85,6 @@ transform = Transform3D(20.5902, 0, 0, 0, 1, 0, 0, 0, 20.5902, 0, 0, 0)
 shape = SubResource("BoxShape3D_3ej2q")
 
 [node name="Zombie" parent="." instance=ExtResource("4_345q1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81936, 0.5, -7.79579)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0737691, 0.5, -9.41657)
 
-[node name="Zombie2" parent="." instance=ExtResource("4_345q1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81936, 0.5, -5.82951)
-
-[node name="Zombie3" parent="." instance=ExtResource("4_345q1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81936, 0.5, -3.60697)
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
