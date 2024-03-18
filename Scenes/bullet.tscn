@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct4nicqxmt2l6"]
+[gd_scene load_steps=6 format=3 uid="uid://ct4nicqxmt2l6"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_u5mxi"]
+[ext_resource type="PackedScene" uid="uid://dvy5oyljyo62d" path="res://Scenes/bullet_gpu_particles_3d.tscn" id="2_6dxp7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0ogrl"]
 
@@ -9,6 +10,10 @@ albedo_color = Color(0.92549, 0.701961, 0.207843, 1)
 emission_enabled = true
 emission = Color(0.788235, 0.65098, 0.145098, 1)
 emission_energy_multiplier = 5.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k323c"]
+radius = 0.2
+height = 1.2
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_u5mxi")
@@ -19,4 +24,24 @@ mesh = SubResource("BoxMesh_0ogrl")
 surface_material_override/0 = SubResource("StandardMaterial3D_a2o0q")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, 0.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0895398)
+target_position = Vector3(0, 0, 2)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="GPUParticles3D" parent="." instance=ExtResource("2_6dxp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.519601)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_k323c")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

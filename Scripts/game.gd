@@ -11,7 +11,7 @@ var instance
 func _ready():
 	randomize()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_tree().call_group("zombies", "update_target_position", player.position)
 
 
