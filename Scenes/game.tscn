@@ -20,6 +20,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [sub_resource type="BoxMesh" id="BoxMesh_p5bk6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ej2q"]
+size = Vector3(21, 1, 21)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_snps0")
@@ -82,7 +83,6 @@ transform = Transform3D(20.5902, 0, 0, 0, 1, 0, 0, 0, 20.5902, 0, 0, 0)
 mesh = SubResource("BoxMesh_p5bk6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CSGCombiner3D/Floor"]
-transform = Transform3D(20.5902, 0, 0, 0, 1, 0, 0, 0, 20.5902, 0, 0, 0)
 shape = SubResource("BoxShape3D_3ej2q")
 
 [node name="Zombie" parent="." instance=ExtResource("4_345q1")]

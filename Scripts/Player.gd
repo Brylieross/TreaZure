@@ -7,7 +7,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.0015
 var bullet = load("res://Scenes/bullet.tscn")
 var instance
-
+var target_enemy = null
 
 @onready var gun_anim = $Camera3D/Gun/GunMesh/AnimationPlayer
 @onready var gun_barrel = $Camera3D/Gun/GunMesh/RayCast3D
