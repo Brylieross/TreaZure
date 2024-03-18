@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bgo1clfd52yj2"]
+
+[node name="crosshair" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="Line2D" type="Line2D" parent="Control"]
+position = Vector2(50, 0)
+points = PackedVector2Array(55, 0, 0, 0)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="Control"]
+position = Vector2(-55, 0)
+rotation = -3.14159
+points = PackedVector2Array(55, 0, 0, 0)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="Control"]
+position = Vector2(0, 55)
+rotation = 1.5708
+points = PackedVector2Array(55, 0, 0, 0)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="Control"]
+position = Vector2(0, -55)
+rotation = -1.5708
+points = PackedVector2Array(55, 0, 0, 0)
+begin_cap_mode = 2
+end_cap_mode = 2
